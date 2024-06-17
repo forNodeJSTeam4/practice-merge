@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { additional } from "./additional.js";
 import calcStore from "./store/calcStore.js";
+import changeStore from "./store/changeStore.js";
 
 export default function App() {
     const [count, setCount] = useState(1);
     const { divideTen, multiFive } = calcStore();
+    const { visible, changeVisibleState } = changeStore();
 
     const decreaseCount = () => {
         setCount(count - 1);
@@ -30,6 +32,8 @@ export default function App() {
             <button onClick={decreaseCount}>감소</button>
             <button onClick={multiply}>곱하기 5</button>
             <button onClick={handleDivideTen}>나누기 10</button>
+            <h3>{visible ? "안녕하세요" : "반갑습니다."}</h3>
+            <button onClick={changeVisibleState}>greeting</button>
         </div>
     );
 }
