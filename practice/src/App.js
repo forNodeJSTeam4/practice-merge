@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { additional } from "./additional.js"
 import calcStore from './store/calcStore.js'
 
 export default function App() {
-  const [count, setCount] = useState(1);
-  const {divideTen} = calcStore()
-  
-  const decreaseCount = () => {
-    setCount(count - 1);
-  };
-  
+    const [count, setCount] = useState(1);
+    const { increase, divideTen } = calcStore()
+
+    const decreaseCount = () => {
+        setCount(count - 1);
+    };
+
     const multiply = () => {
         setCount(count * 5);
     };
@@ -17,7 +16,7 @@ export default function App() {
     const handleIncrease = () => {
         setCount(count + 1);
     };
-    const handleDivideTen=()=>{
+    const handleDivideTen = () => {
         const result = divideTen(count)
         setCount(result)
     }
